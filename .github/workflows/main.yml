@@ -1,0 +1,22 @@
+name: Release pipeline by manual approval example
+
+on: [push]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: build
+        shell: bash
+        run: |
+          echo "build"
+      - name: release-test
+        shell: bash
+        run: |
+          echo "release to test"
+      - name: release-prod
+        environment: production
+        shell: bash
+        run: |
+          echo "release to prod"
